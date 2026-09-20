@@ -1,44 +1,54 @@
 export default function Navbar() {
   return (
-    <nav className="absolute left-0 right-0 top-0 z-50">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+    <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-[#0B0B0F]/80 backdrop-blur-xl">
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
+        {/* LOGO */}
         <a
-          href="#"
-          className="text-xl font-bold tracking-tight text-white"
+          href="/"
+          className="text-lg font-semibold tracking-[-0.02em] text-white transition hover:text-purple-300"
         >
-          SAMIHA<span className="text-purple-400">.</span>
+          Samiha Sediri
         </a>
 
-        <div className="hidden items-center gap-8 text-sm text-white/60 md:flex">
+        {/* NAVIGATION */}
+        <nav className="hidden items-center gap-8 md:flex">
           <a
-            href="#work"
-            className="transition hover:text-white"
+            href="/#work"
+            className="text-sm text-white/55 transition hover:text-white"
           >
             Work
           </a>
 
           <a
-            href="#about"
-            className="transition hover:text-white"
+            href="/#services"
+            className="text-sm text-white/55 transition hover:text-white"
+          >
+            Services
+          </a>
+
+          <a
+            href="/#about"
+            className="text-sm text-white/55 transition hover:text-white"
           >
             About
           </a>
 
           <a
-            href="#contact"
-            className="transition hover:text-white"
+            href="/#contact"
+            className="rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white transition hover:border-purple-400/50 hover:bg-purple-400/10"
           >
-            Contact
+            Let&apos;s talk
           </a>
-        </div>
+        </nav>
 
+        {/* MOBILE */}
         <a
-          href="#contact"
-          className="rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition hover:border-purple-400/50 hover:bg-purple-400/10"
+          href="/#contact"
+          className="rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-white md:hidden"
         >
-          Let's talk
+          Contact
         </a>
       </div>
-    </nav>
+    </header>
   )
 }

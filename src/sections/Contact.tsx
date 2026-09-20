@@ -24,10 +24,10 @@ export default function Contact() {
               </p>
 
               <a
-                href="mailto:YOUR_EMAIL@example.com"
+                href="mailto:samihasediri2021@gmail.com"
                 className="mt-8 inline-flex items-center gap-3 text-lg font-medium text-white transition hover:text-purple-300"
               >
-                YOUR_EMAIL@example.com
+                samihasediri2021@gmail
                 <span>↗</span>
               </a>
 

@@ -1,5 +1,5 @@
 import { IDENTITY } from '../content'
-import samihaPhoto from '../assets/samiha.png'
+import heroPhoto from '../assets/hero-photo.png'
 
 export default function Hero() {
   return (
@@ -48,7 +48,7 @@ export default function Hero() {
 
               <div className="relative h-[400px] w-[300px] overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.03] shadow-2xl sm:h-[450px] sm:w-[340px]">
                 <img
-                  src={samihaPhoto}
+                  src={heroPhoto}
                   alt="Samiha Sediri"
                   className="h-full w-full object-cover object-center"
                 />

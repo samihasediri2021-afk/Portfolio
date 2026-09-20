@@ -21,7 +21,10 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="bg-[#0B0B0F] px-6 py-16 text-white">
+    <section
+      id="services"
+      className="bg-[#0B0B0F] px-6 py-16 text-white"
+    >
       <div className="mx-auto max-w-6xl">
         <div className="mb-10">
           <p className="mb-3 text-sm font-medium uppercase tracking-[0.25em] text-purple-400">
@@ -31,7 +34,9 @@ export default function Services() {
           <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">
             Design with intention.
             <br />
-            <span className="text-white/40">Quality with precision.</span>
+            <span className="text-white/40">
+              Quality with precision.
+            </span>
           </h2>
         </div>
 
