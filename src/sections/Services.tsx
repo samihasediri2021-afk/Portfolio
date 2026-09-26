@@ -23,7 +23,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="bg-[#0B0B0F] px-6 py-16 text-white"
+      className="bg-transparent px-6 py-16 text-white"
     >
       <div className="mx-auto max-w-6xl">
         <div className="mb-10">
@@ -34,7 +34,7 @@ export default function Services() {
           <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">
             Design with intention.
             <br />
-            <span className="text-white/40">
+            <span className="text-white/100">
               Quality with precision.
             </span>
           </h2>

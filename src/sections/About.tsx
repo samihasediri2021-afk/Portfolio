@@ -1,168 +1,122 @@
+const tools = [
+  'Figma',
+  'Photoshop',
+  'Illustrator',
+  'InDesign',
+  'After Effects',
+  'Canva',
+  'Jira',
+  'Postman',
+  'Swagger',
+]
+
 export default function About() {
   return (
     <section
       id="about"
-      className="bg-[#0B0B0F] px-6 py-24 text-white sm:py-28 lg:py-32"
+      className="bg-transparent px-6 py-24 text-white sm:py-28"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="grid gap-12 md:grid-cols-[0.55fr_1.45fr] md:gap-16 lg:grid-cols-[0.6fr_1.4fr] lg:gap-20">
-          {/* Left side */}
-          <div>
-            <p className="mb-5 text-xs font-medium uppercase tracking-[0.3em] text-purple-400">
-              About me
-            </p>
 
-            <h2 className="text-4xl font-semibold leading-[1.05] tracking-[-0.04em] sm:text-5xl">
-              A creative path
-              <br />
-              <span className="text-white/30">
-                across disciplines.
-              </span>
+        {/* SECTION LABEL */}
+        <div className="mb-14 border-t border-white/10 pt-10">
+          <p className="text-sm font-medium uppercase tracking-[0.25em] text-purple-400">
+            About me
+          </p>
+        </div>
+
+        {/* MAIN CONTENT */}
+        <div className="grid gap-12 lg:grid-cols-[0.95fr_1.35fr_0.85fr] lg:gap-14">
+
+          {/* TITLE */}
+          <div>
+            <h2 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+              A designer who cares about
+              <span className="text-white/40"> how things feel.</span>
             </h2>
           </div>
 
-          {/* Right side */}
-          <div>
-            <p className="max-w-3xl text-xl leading-9 text-white/75 sm:text-2xl">
-              My journey started outside the tech world, and gradually
-              brought me from business and logistics into design, product
-              quality and now web development.
-            </p>
-
-            <p className="mt-7 max-w-3xl leading-8 text-white/40">
-              I studied International Business and Logistics before
-              discovering the creative side of digital work through Graphic
-              Design and Video Editing.
-            </p>
-
-            <p className="mt-5 max-w-3xl leading-8 text-white/40">
-              I then moved into UI/UX Design, where I focused on creating
-              clear, intuitive and thoughtful digital experiences. More
-              recently, I entered the world of QA and UX Testing, learning
-              to look beyond the interface and understand how a product
-              actually works.
-            </p>
-
-            <p className="mt-5 max-w-3xl leading-8 text-white/40">
-              Today, I am also exploring Web Development with the help of
-              AI, learning how to turn ideas and designs into working
+          {/* STORY */}
+          <div className="max-w-2xl">
+            <p className="text-lg leading-8 text-white/70">
+              My background brings together business, design and quality
+              assurance — three perspectives that shape the way I approach
               digital products.
             </p>
 
-            {/* Journey */}
-            <div className="mt-12 border-t border-white/10 pt-8">
-              <p className="mb-6 text-[10px] font-medium uppercase tracking-[0.25em] text-white/30">
-                My journey
-              </p>
+            <p className="mt-6 text-base leading-7 text-white/45">
+              I started with International Business &amp; Logistics before
+              moving into graphic design and video editing. I then developed
+              my skills in UI/UX design, working on digital products from
+              early ideas and user flows to polished interfaces and
+              prototypes.
+            </p>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-5 transition duration-300 hover:border-purple-400/20">
-                  <span className="text-[10px] font-medium text-purple-400">
-                    01
-                  </span>
+            <p className="mt-6 text-base leading-7 text-white/45">
+              More recently, I worked in QA, testing digital products across
+              mobile, web and integration environments. This experience taught
+              me to look beyond the interface and pay attention to the details
+              that make a product feel reliable and complete.
+            </p>
+          </div>
 
-                  <h3 className="mt-4 text-sm font-semibold text-white">
-                    Business & Logistics
-                  </h3>
+          {/* FOCUS */}
+          <div className="lg:border-l lg:border-white/10 lg:pl-8">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/45">
+              Focus
+            </p>
 
-                  <p className="mt-2 text-sm leading-6 text-white/35">
-                    International Business & Logistics
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-5 transition duration-300 hover:border-purple-400/20">
-                  <span className="text-[10px] font-medium text-purple-400">
-                    02
-                  </span>
-
-                  <h3 className="mt-4 text-sm font-semibold text-white">
-                    Graphic Design
-                  </h3>
-
-                  <p className="mt-2 text-sm leading-6 text-white/35">
-                    Graphic Design & Video Editing
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-5 transition duration-300 hover:border-purple-400/20">
-                  <span className="text-[10px] font-medium text-purple-400">
-                    03
-                  </span>
-
-                  <h3 className="mt-4 text-sm font-semibold text-white">
-                    UI / UX Design
-                  </h3>
-
-                  <p className="mt-2 text-sm leading-6 text-white/35">
-                    Digital interfaces & experiences
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-5 transition duration-300 hover:border-purple-400/20">
-                  <span className="text-[10px] font-medium text-purple-400">
-                    04
-                  </span>
-
-                  <h3 className="mt-4 text-sm font-semibold text-white">
-                    QA & UX Testing
-                  </h3>
-
-                  <p className="mt-2 text-sm leading-6 text-white/35">
-                    Manual testing & product validation
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-purple-400/20 bg-purple-400/[0.035] p-5 transition duration-300 hover:border-purple-400/30 sm:col-span-2">
-                  <span className="text-[10px] font-medium text-purple-400">
-                    05
-                  </span>
-
-                  <h3 className="mt-4 text-sm font-semibold text-white">
-                    AI-Assisted Web Development
-                  </h3>
-
-                  <p className="mt-2 text-sm leading-6 text-white/35">
-                    Currently exploring how to build and bring digital
-                    products to life with the help of AI.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom details */}
-            <div className="mt-12 grid grid-cols-2 gap-6 border-t border-white/10 pt-8">
+            <div className="mt-6 space-y-6">
               <div>
-                <p className="text-sm text-white/30">Focus</p>
-                <p className="mt-2 font-medium">
-                  UI / UX · Graphic Design
+                <p className="text-sm font-medium text-white">
+                  UI / UX Design
+                </p>
+                <p className="mt-1 text-sm leading-6 text-white/45">
+                  Interfaces, flows &amp; prototypes
                 </p>
               </div>
 
               <div>
-                <p className="text-sm text-white/30">Quality</p>
-                <p className="mt-2 font-medium">
-                  QA · UX Testing
+                <p className="text-sm font-medium text-white">
+                  Graphic Design
+                </p>
+                <p className="mt-1 text-sm leading-6 text-white/45">
+                  Visual communication &amp; branding
                 </p>
               </div>
 
               <div>
-                <p className="text-sm text-white/30">Tools</p>
-                <p className="mt-2 font-medium">
-  Photoshop · Illustrator · InDesign · After Effects · Figma · Canva · Jira · Swagger · Postman
-</p>
-              </div>
-
-              <div>
-                <p className="text-sm text-white/30">
-                  Available for
+                <p className="text-sm font-medium text-white">
+                  QA &amp; UX Testing
                 </p>
-                <p className="mt-2 font-medium">
-                  Freelance · Remote
+                <p className="mt-1 text-sm leading-6 text-white/45">
+                  Quality, usability &amp; details
                 </p>
               </div>
             </div>
+
+            <div className="mt-10 h-px w-10 bg-purple-400/70" />
           </div>
         </div>
+
+        {/* TOOLS */}
+        <div className="mt-16 border-t border-white/10 pt-8">
+          <p className="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-white/45">
+            Tools &amp; technologies
+          </p>
+
+          <div className="flex flex-wrap gap-3">
+            {tools.map((tool) => (
+              <div
+                key={tool}
+                className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-white/65 backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-purple-400/30 hover:bg-purple-400/10 hover:text-white"
+              >
+                {tool}
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   )

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
 import Hero from './sections/Hero'
@@ -15,58 +15,99 @@ import PersonalServicesPlatform from './pages/PersonalServicesPlatform'
 import EVChargingWebPlatform from './pages/EVChargingWebPlatform'
 import LUMA from './pages/LUMA'
 
-function Home() {
-  return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
-        <Services />
-        <Portfolio />
-        <About />
-        <Contact />
-      </main>
-      <Footer />
-    </>
-  )
-}
-
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
+    <div className="site-shell">
+      {/* =====================================================
+          GLOBAL AURORA BACKGROUND
+          ===================================================== */}
 
-        <Route
-          path="/work/ev-charging-app"
-          element={<Qovoltis />}
-        />
+      <div className="aurora-background" aria-hidden="true">
+        {/* Deep base */}
+        <div className="aurora-base" />
 
-        <Route
-          path="/work/real-estate-platform"
-          element={<RealEstatePlatform />}
-        />
+        {/* Large moving auroras */}
+        <div className="aurora-orb aurora-orb-one" />
+        <div className="aurora-orb aurora-orb-two" />
+        <div className="aurora-orb aurora-orb-three" />
+        <div className="aurora-orb aurora-orb-four" />
 
-        <Route
-          path="/work/erp-platform"
-          element={<ERPPlatform />}
-        />
+        {/* Soft center glow */}
+        <div className="aurora-center" />
 
-        <Route
-          path="/work/personal-services-platform"
-          element={<PersonalServicesPlatform />}
-        />
+        {/* Fine light particles */}
+        <div className="aurora-particles">
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
 
-        <Route
-          path="/work/ev-charging-web-platform"
-          element={<EVChargingWebPlatform />}
-        />
+        {/* Subtle atmospheric gradient */}
+        <div className="aurora-vignette" />
+      </div>
 
-        <Route
-          path="/work/luma"
-          element={<LUMA />}
-        />
-      </Routes>
-    </BrowserRouter>
+      {/* =====================================================
+          PAGE CONTENT
+          ===================================================== */}
+
+      <div className="site-content">
+        <Navbar />
+
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Services />
+                <Portfolio />
+                <About />
+                <Contact />
+                <Footer />
+              </>
+            }
+          />
+
+          <Route
+            path="/work/ev-charging-app"
+            element={<Qovoltis />}
+          />
+
+          <Route
+            path="/work/real-estate-platform"
+            element={<RealEstatePlatform />}
+          />
+
+          <Route
+            path="/work/erp-platform"
+            element={<ERPPlatform />}
+          />
+
+          <Route
+            path="/work/personal-services-platform"
+            element={<PersonalServicesPlatform />}
+          />
+
+          <Route
+            path="/work/ev-charging-web-platform"
+            element={<EVChargingWebPlatform />}
+          />
+
+          <Route
+            path="/work/luma"
+            element={<LUMA />}
+          />
+        </Routes>
+      </div>
+    </div>
   )
 }

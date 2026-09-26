@@ -2,7 +2,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-[#0B0B0F] px-6 py-28 text-white"
+      className="bg-transparent px-6 py-28 text-white"
     >
       <div className="mx-auto max-w-6xl">
         <div className="border-t border-white/10 pt-20">
@@ -27,7 +27,7 @@ export default function Contact() {
                 href="mailto:samihasediri2021@gmail.com"
                 className="mt-8 inline-flex items-center gap-3 text-lg font-medium text-white transition hover:text-purple-300"
               >
-                samihasediri2021@gmail
+                samihasediri2021@gmail.com
                 <span>↗</span>
               </a>
 

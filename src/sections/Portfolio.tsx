@@ -121,7 +121,7 @@ function ProjectGallery({
   }
 
   return (
-    <div className="relative h-full min-h-[360px] overflow-hidden bg-[#101014] lg:min-h-[460px]">
+    <div className="relative h-full min-h-[360px] overflow-hidden bg-[#17171F] lg:min-h-0">
       <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-purple-500/10 blur-[100px]" />
 
       <div
@@ -136,15 +136,26 @@ function ProjectGallery({
         {projects.map((project, index) => (
           <article
             key={`${project.title}-${index}`}
-            className="group/project relative h-full min-h-[360px] w-full flex-none snap-center overflow-hidden lg:min-h-[460px]"
+            className="group/project relative h-full min-h-[360px] w-full flex-none snap-center overflow-hidden lg:min-h-0"
           >
-            <img
-              src={project.image}
-              alt={`${project.title} project preview`}
-              className="h-full w-full object-cover object-center transition duration-1000 ease-out group-hover/project:scale-[1.02]"
+            <div
+              className="absolute inset-0 scale-110 bg-cover bg-center opacity-40 blur-2xl"
+              style={{
+                backgroundImage: `url(${project.image})`,
+              }}
             />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+            <div className="absolute inset-0 bg-[#17171F]/60" />
+
+            <div className="absolute inset-0 flex items-center justify-center">
+              <img
+                src={project.image}
+                alt={`${project.title} project preview`}
+                className="block max-h-full max-w-full object-contain transition duration-1000 ease-out group-hover/project:scale-[1.015]"
+              />
+            </div>
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
 
             <div className="absolute left-6 top-6 flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-black/30 text-[10px] font-medium text-white/70 backdrop-blur-xl">
               {String(index + 1).padStart(2, '0')}
@@ -213,9 +224,36 @@ export default function Portfolio() {
   return (
     <section
       id="work"
-      className="bg-[#0B0B0F] px-6 py-12 text-white sm:py-16 lg:py-20"
+      className="relative overflow-hidden bg-transparent px-6 py-12 text-white sm:py-16 lg:py-20"
     >
-      <div className="mx-auto max-w-6xl">
+      {/* ANIMATED BACKGROUND */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div
+          className="absolute -left-40 top-20 h-[420px] w-[420px] rounded-full bg-purple-600/[0.08] blur-[120px]"
+          style={{
+            animation: 'portfolioFloatOne 14s ease-in-out infinite',
+          }}
+        />
+
+        <div
+          className="absolute right-[-180px] top-[35%] h-[500px] w-[500px] rounded-full bg-violet-500/[0.07] blur-[140px]"
+          style={{
+            animation: 'portfolioFloatTwo 18s ease-in-out infinite',
+          }}
+        />
+
+        <div
+          className="absolute bottom-[-180px] left-[35%] h-[420px] w-[420px] rounded-full bg-indigo-500/[0.06] blur-[130px]"
+          style={{
+            animation: 'portfolioFloatThree 20s ease-in-out infinite',
+          }}
+        />
+
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(124,92,255,0.035),transparent_60%)]" />
+      </div>
+
+      {/* CONTENT */}
+      <div className="relative z-10 mx-auto max-w-6xl">
         <div className="mb-14 max-w-3xl">
           <p className="mb-5 text-xs font-medium uppercase tracking-[0.3em] text-purple-400">
             Selected work
@@ -239,12 +277,13 @@ export default function Portfolio() {
           {categories.map((category) => (
             <article
               key={category.number}
-              className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.025] shadow-[0_20px_80px_rgba(0,0,0,0.18)] transition duration-500 hover:border-white/[0.18]"
+              className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] shadow-[0_20px_80px_rgba(0,0,0,0.18)] backdrop-blur-[2px] transition duration-500 hover:border-white/[0.18]"
             >
-              <div className="grid lg:grid-cols-[0.85fr_1.15fr]">
+              <div className="grid lg:grid-cols-[0.72fr_1.28fr]">
+                {/* LEFT — PROJECT INFO */}
                 <div className="flex flex-col justify-between p-7 sm:p-9 lg:p-12">
                   <div>
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between gap-4">
                       <span className="text-[11px] font-medium tracking-[0.2em] text-white/30">
                         {category.number}
                       </span>
@@ -282,12 +321,55 @@ export default function Portfolio() {
                   )}
                 </div>
 
+                {/* RIGHT — PROJECT GALLERY */}
                 <ProjectGallery projects={category.projects} />
               </div>
             </article>
           ))}
         </div>
       </div>
+
+      {/* ANIMATION KEYFRAMES */}
+      <style>{`
+        @keyframes portfolioFloatOne {
+          0%,
+          100% {
+            transform: translate3d(0, 0, 0) scale(1);
+          }
+
+          50% {
+            transform: translate3d(120px, 80px, 0) scale(1.15);
+          }
+        }
+
+        @keyframes portfolioFloatTwo {
+          0%,
+          100% {
+            transform: translate3d(0, 0, 0) scale(1);
+          }
+
+          50% {
+            transform: translate3d(-100px, -80px, 0) scale(1.12);
+          }
+        }
+
+        @keyframes portfolioFloatThree {
+          0%,
+          100% {
+            transform: translate3d(0, 0, 0) scale(1);
+          }
+
+          50% {
+            transform: translate3d(80px, -100px, 0) scale(1.1);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .portfolio-orb {
+            animation: none !important;
+          }
+        }
+      `}</style>
     </section>
   )
 }
