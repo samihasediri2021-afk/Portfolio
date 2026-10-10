@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import erp from "../assets/Heroerp.png";
 import clients from "../assets/Clients.png";
 import dashboard from "../assets/Dashboard erp.png";
+import invoices from "../assets/invoices.png";
 
 export default function ERPPlatform() {
   return (
@@ -349,12 +350,12 @@ export default function ERPPlatform() {
             </div>
 
             <div className="group overflow-hidden rounded-[22px] border border-white/10 bg-black/10 md:col-span-2">
-              <img
-          
-                alt="ERP Platform management interface"
-                className="h-auto w-full transition duration-500 group-hover:scale-[1.015]"
-              />
-            </div>
+  <img
+    src={invoices}
+    alt="ERP Platform invoices management interface"
+    className="h-auto w-full transition duration-500 group-hover:scale-[1.015]"
+  />
+</div>
           </div>
         </div>
       </section>
