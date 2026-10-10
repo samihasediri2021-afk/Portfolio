@@ -1,230 +1,191 @@
-import { useEffect, useRef, useState } from 'react'
+
+import { useState } from 'react'
 import qovoltis01 from '../assets/qovoltis-01.png'
 import realEstate01 from '../assets/real-estate-01.png'
 import erp01 from '../assets/erp-01.png'
 import personalServices01 from '../assets/personal-services-01.png'
 import evChargingWeb01 from '../assets/evChargingWeb01.png'
 import designSystem from '../assets/design-system.png'
+import healthcare from '../assets/healthcare.png'
+import pharmacy from '../assets/Pharmacy.png'
 import graphic01 from '../assets/graphic-01.png'
 import graphic02 from '../assets/graphic-02.png'
 import graphic03 from '../assets/graphic-03.png'
 import graphic04 from '../assets/graphic-04.png'
 import graphic05 from '../assets/graphic-05.png'
 
-const categories = [
+const projects = [
   {
-    number: '01',
-    label: 'UI / UX DESIGN',
-    title: 'Digital products,\nthoughtfully designed.',
+    title: 'EV Charging App',
     description:
-      'Interfaces and digital experiences designed with a focus on clarity, structure, usability and visual detail.',
-    projects: [
-      { title: 'EV Charging App', image: qovoltis01 },
-      { title: 'Real Estate Platform', image: realEstate01 },
-      { title: 'ERP Platform', image: erp01 },
-      { title: 'Personal Services Platform', image: personalServices01 },
-      { title: 'EV Charging Web Platform', image: evChargingWeb01 },
-      { title: 'Design System', image: designSystem },
-    ],
+      'Mobile charging experience designed with a focus on clarity and usability.',
+    image: qovoltis01,
+    category: 'UI / UX',
+    categoryStyle: 'purple',
+    href: '/work/ev-charging-app',
   },
   {
-    number: '02',
-    label: 'GRAPHIC DESIGN',
-    title: 'Visuals with\npurpose.',
+    title: 'Real Estate Platform',
     description:
-      'Visual design work covering brand identity, visual guidelines, logo design, social media content, video editing, labels, flyers and other marketing materials.',
-    projects: [
-      { title: 'Graphic Design', image: graphic01 },
-      { title: 'Graphic Design', image: graphic02 },
-      { title: 'Graphic Design', image: graphic03 },
-      { title: 'Graphic Design', image: graphic04 },
-      { title: 'Graphic Design', image: graphic05 },
-    ],
+      'A structured digital experience for browsing and managing real estate information.',
+    image: realEstate01,
+    category: 'UI / UX',
+    categoryStyle: 'purple',
+    href: '/work/real-estate-platform',
   },
   {
-    number: '03',
-    label: 'QA & UX TESTING',
-    title: 'From interface\nto integration.',
+    title: 'ERP Platform',
     description:
-      'Manual testing across mobile and web environments, including API testing with Swagger, front-end integration validation and UX testing.',
-    projects: [
-      { title: 'EV Charging App', image: qovoltis01 },
-      { title: 'EV Charging Web Platform', image: evChargingWeb01 },
-    ],
+      'Dashboard and digital interface designed to make complex information easier to navigate.',
+    image: erp01,
+    category: 'UI / UX',
+    categoryStyle: 'purple',
+    href: '/work/erp-platform',
+  },
+  {
+    title: 'Personal Services Platform',
+    description:
+      'A digital platform designed around services, users and a clear browsing experience.',
+    image: personalServices01,
+    category: 'UI / UX',
+    categoryStyle: 'purple',
+    href: '/work/personal-services-platform',
+  },
+  {
+    title: 'EV Charging Web Platform',
+    description:
+      'Web interface designed for managing and monitoring EV charging experiences.',
+    image: evChargingWeb01,
+    category: 'UI / UX',
+    categoryStyle: 'purple',
+    href: '/work/ev-charging-web-platform',
+  },
+  {
+    title: 'Healthcare Mobile App',
+    description:
+      'Mobile healthcare experience designed around simplicity and accessibility.',
+    image: healthcare,
+    category: 'UI / UX',
+    categoryStyle: 'purple',
+    status: 'In Progress',
+  },
+  {
+    title: 'Pharmacy App',
+    description:
+      'Mobile pharmacy experience focused on clear navigation and a simple user journey.',
+    image: pharmacy,
+    category: 'UI / UX',
+    categoryStyle: 'purple',
+    status: 'In Progress',
+  },
+  {
+    title: 'Design System',
+    description:
+      'A visual foundation bringing consistency, hierarchy and reusable interface elements together.',
+    image: designSystem,
+    category: 'UI / UX',
+    categoryStyle: 'purple',
+    status: 'In Progress',
+  },
+  {
+    title: 'Brand Identity & Logo Design',
+    description:
+      'Logo design and visual identity work focused on creating clear and consistent brand expressions.',
+    image: graphic01,
+    category: 'Graphic Design',
+    categoryStyle: 'pink',
+    href: '/projects/graphic-design',
+  },
+  {
+    title: 'Business Card Design',
+    description:
+      'Professional business card designs combining brand identity, hierarchy and clear visual communication.',
+    image: graphic02,
+    category: 'Graphic Design',
+    categoryStyle: 'pink',
+    href: '/projects/graphic-design-02',
+  },
+  {
+    title: 'Flyer & Print Design',
+    description:
+      'Flyer and print designs created with a focus on composition, readability and visual impact.',
+    image: graphic03,
+    category: 'Graphic Design',
+    categoryStyle: 'pink',
+    href: '/projects/graphic-design-03',
+  },
+  {
+    title: 'Social Media Design',
+    description:
+      'Social media visuals designed to communicate brand messages clearly across digital platforms.',
+    image: graphic04,
+    category: 'Graphic Design',
+    categoryStyle: 'pink',
+    href: '/projects/graphic-design-04',
+  },
+  {
+    title: 'Visual Communication Design',
+    description:
+      'A selection of graphic design work created for different communication and branding needs.',
+    image: graphic05,
+    category: 'Graphic Design',
+    categoryStyle: 'pink',
+    href: '/projects/graphic-design-05',
+  },
+  {
+    title: 'EV Charging App',
+    description:
+      'Manual testing and UX validation across the mobile charging experience.',
+    image: qovoltis01,
+    category: 'QA',
+    categoryStyle: 'blue',
+    href: '/work/ev-charging-app-qa',
+  },
+  {
+    title: 'EV Charging Web Platform',
+    description:
+      'Manual testing, API testing and front-end integration validation.',
+    image: evChargingWeb01,
+    category: 'QA',
+    categoryStyle: 'blue',
+    href: '/work/ev-charging-web-qa',
   },
 ]
 
-function ProjectGallery({
-  projects,
-}: {
-  projects: { title: string; image: string }[]
-}) {
-  const galleryRef = useRef<HTMLDivElement>(null)
-  const [activeIndex, setActiveIndex] = useState(0)
-
-  const scrollToIndex = (index: number) => {
-    if (!galleryRef.current || projects.length === 0) return
-
-    const safeIndex = (index + projects.length) % projects.length
-
-    galleryRef.current.scrollTo({
-      left: galleryRef.current.clientWidth * safeIndex,
-      behavior: 'smooth',
-    })
-
-    setActiveIndex(safeIndex)
+function getCategoryStyle(style: string) {
+  if (style === 'pink') {
+    return 'border-pink-200/30 bg-[#120C16]/80 text-pink-100'
   }
 
-  const scrollGallery = (direction: 'left' | 'right') => {
-    if (direction === 'right') {
-      scrollToIndex(activeIndex + 1)
-    } else {
-      scrollToIndex(activeIndex - 1)
-    }
+  if (style === 'blue') {
+    return 'border-blue-200/30 bg-[#0B1018]/80 text-blue-100'
   }
 
-  useEffect(() => {
-    if (projects.length <= 1) return
-
-    const interval = setInterval(() => {
-      setActiveIndex((currentIndex) => {
-        const nextIndex = (currentIndex + 1) % projects.length
-
-        if (galleryRef.current) {
-          galleryRef.current.scrollTo({
-            left: galleryRef.current.clientWidth * nextIndex,
-            behavior: 'smooth',
-          })
-        }
-
-        return nextIndex
-      })
-    }, 3500)
-
-    return () => clearInterval(interval)
-  }, [projects.length])
-
-  const handleScroll = () => {
-    if (!galleryRef.current) return
-
-    const width = galleryRef.current.clientWidth
-
-    if (width === 0) return
-
-    const index = Math.round(
-      galleryRef.current.scrollLeft / width,
-    )
-
-    setActiveIndex(
-      Math.max(0, Math.min(index, projects.length - 1)),
-    )
-  }
-
-  return (
-    <div className="relative h-full min-h-[360px] overflow-hidden bg-[#17171F] lg:min-h-0">
-      <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-purple-500/10 blur-[100px]" />
-
-      <div
-        ref={galleryRef}
-        onScroll={handleScroll}
-        className="scrollbar-none flex h-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden"
-        style={{
-          scrollbarWidth: 'none',
-          scrollBehavior: 'smooth',
-        }}
-      >
-        {projects.map((project, index) => (
-          <article
-            key={`${project.title}-${index}`}
-            className="group/project relative h-full min-h-[360px] w-full flex-none snap-center overflow-hidden lg:min-h-0"
-          >
-            <div
-              className="absolute inset-0 scale-110 bg-cover bg-center opacity-40 blur-2xl"
-              style={{
-                backgroundImage: `url(${project.image})`,
-              }}
-            />
-
-            <div className="absolute inset-0 bg-[#17171F]/60" />
-
-            <div className="absolute inset-0 flex items-center justify-center">
-              <img
-                src={project.image}
-                alt={`${project.title} project preview`}
-                className="block max-h-full max-w-full object-contain transition duration-1000 ease-out group-hover/project:scale-[1.015]"
-              />
-            </div>
-
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
-
-            <div className="absolute left-6 top-6 flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-black/30 text-[10px] font-medium text-white/70 backdrop-blur-xl">
-              {String(index + 1).padStart(2, '0')}
-            </div>
-
-            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-              <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.2em] text-purple-300">
-                Selected work
-              </p>
-
-              <h4 className="text-xl font-medium tracking-tight text-white sm:text-2xl">
-                {project.title}
-              </h4>
-            </div>
-          </article>
-        ))}
-      </div>
-
-      {projects.length > 1 && (
-        <div className="absolute right-6 top-6 flex gap-2">
-          <button
-            type="button"
-            onClick={() => scrollGallery('left')}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white/60 backdrop-blur-xl transition duration-300 hover:border-white/20 hover:bg-white/10 hover:text-white"
-            aria-label="Previous project"
-          >
-            ←
-          </button>
-
-          <button
-            type="button"
-            onClick={() => scrollGallery('right')}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white/60 backdrop-blur-xl transition duration-300 hover:border-white/20 hover:bg-white/10 hover:text-white"
-            aria-label="Next project"
-          >
-            →
-          </button>
-        </div>
-      )}
-
-      {projects.length > 1 && (
-        <div className="absolute bottom-6 right-6 flex items-center gap-3 rounded-full border border-white/10 bg-black/45 px-4 py-2.5 backdrop-blur-xl">
-          <div className="flex gap-1.5">
-            {projects.map((_, index) => (
-              <span
-                key={index}
-                className={`h-1 rounded-full transition-all duration-500 ${
-                  index === activeIndex
-                    ? 'w-6 bg-purple-400'
-                    : 'w-1.5 bg-white/25'
-                }`}
-              />
-            ))}
-          </div>
-
-          <span className="text-[10px] uppercase tracking-[0.15em] text-white/40">
-            {activeIndex + 1} / {projects.length}
-          </span>
-        </div>
-      )}
-    </div>
-  )
+  return 'border-violet-200/30 bg-[#100D1C]/80 text-violet-100'
 }
 
 export default function Portfolio() {
+  const [activeFilter, setActiveFilter] = useState('All')
+
+  const filteredProjects = projects.filter((project) => {
+    // Hide Graphic Design projects in the All filter
+    if (activeFilter === 'All') {
+      return project.category !== 'Graphic Design'
+    }
+
+    if (activeFilter === 'UI/UX Design') {
+      return project.category === 'UI / UX'
+    }
+
+    return project.category === activeFilter
+  })
+
+  const filters = ['All', 'UI/UX Design', 'Graphic Design', 'QA']
+
   return (
     <section
       id="work"
-      className="relative overflow-hidden bg-transparent px-6 py-12 text-white sm:py-16 lg:py-20"
+      className="relative overflow-hidden bg-transparent px-6 py-2 text-white sm:py-3 lg:py-4"
     >
       {/* ANIMATED BACKGROUND */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -254,7 +215,8 @@ export default function Portfolio() {
 
       {/* CONTENT */}
       <div className="relative z-10 mx-auto max-w-6xl">
-        <div className="mb-14 max-w-3xl">
+        {/* HEADER */}
+        <div className="mb-10 max-w-3xl">
           <p className="mb-5 text-xs font-medium uppercase tracking-[0.3em] text-purple-400">
             Selected work
           </p>
@@ -262,9 +224,7 @@ export default function Portfolio() {
           <h2 className="text-3xl font-semibold leading-[1.05] tracking-[-0.04em] sm:text-5xl md:text-[4rem]">
             Design, testing
             <br />
-            <span className="text-white/30">
-              and visual craft.
-            </span>
+            <span className="text-white/30">and visual craft.</span>
           </h2>
 
           <p className="mt-7 max-w-xl text-sm leading-7 text-white/40 sm:text-base">
@@ -273,60 +233,164 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="space-y-7">
-          {categories.map((category) => (
-            <article
-              key={category.number}
-              className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] shadow-[0_20px_80px_rgba(0,0,0,0.18)] backdrop-blur-[2px] transition duration-500 hover:border-white/[0.18]"
-            >
-              <div className="grid lg:grid-cols-[0.72fr_1.28fr]">
-                {/* LEFT — PROJECT INFO */}
-                <div className="flex flex-col justify-between p-7 sm:p-9 lg:p-12">
-                  <div>
-                    <div className="flex items-center justify-between gap-4">
-                      <span className="text-[11px] font-medium tracking-[0.2em] text-white/30">
-                        {category.number}
-                      </span>
+        {/* FILTERS */}
+        <div className="mb-10 flex flex-wrap items-center gap-2.5">
+          {filters.map((filter) => {
+            const isActive = activeFilter === filter
 
-                      <span className="rounded-full border border-purple-400/20 bg-purple-400/[0.06] px-3 py-1.5 text-[10px] font-medium tracking-[0.16em] text-purple-300">
-                        {category.label}
+            return (
+              <button
+                key={filter}
+                type="button"
+                onClick={() => setActiveFilter(filter)}
+                className={`group relative overflow-hidden rounded-full border px-5 py-2.5 text-[12px] font-medium tracking-wide transition-all duration-300 ${
+                  isActive
+                    ? 'border-violet-400/30 bg-violet-500/[0.12] text-white shadow-[0_8px_30px_rgba(124,92,255,0.12)]'
+                    : 'border-white/[0.08] bg-white/[0.025] text-white/45 hover:border-white/[0.16] hover:bg-white/[0.055] hover:text-white/80'
+                }`}
+              >
+                {isActive && (
+                  <span className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_0%,rgba(167,139,250,0.18),transparent_65%)]" />
+                )}
+
+                <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/[0.04] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                <span className="relative z-10">{filter}</span>
+              </button>
+            )
+          })}
+        </div>
+
+        {/* GRAPHIC DESIGN COMING SOON */}
+        {activeFilter === 'Graphic Design' ? (
+          <div className="flex min-h-[280px] flex-col items-center justify-center rounded-[1.75rem] border border-white/10 bg-white/[0.025] px-6 py-16 text-center">
+            <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-purple-400">
+              Graphic Design
+            </p>
+
+            <h3 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Coming Soon
+            </h3>
+
+            <p className="mt-4 max-w-md text-sm leading-7 text-white/45">
+              A collection of visual identities, branding and graphic design
+              projects is on its way.
+            </p>
+
+            <div className="mt-7 h-px w-16 bg-gradient-to-r from-transparent via-purple-400/70 to-transparent" />
+          </div>
+        ) : (
+          /* PROJECT GRID */
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredProjects.map((project, index) => {
+              const isInProgress =
+                'status' in project && project.status === 'In Progress'
+
+              const cardContent = (
+                <>
+                  {/* IMAGE */}
+                  <div className="relative aspect-[4/3] overflow-hidden bg-[#17171F]">
+                    <div
+                      className="absolute inset-0 scale-110 bg-cover bg-center opacity-30 blur-2xl transition duration-700 group-hover:opacity-45"
+                      style={{
+                        backgroundImage: `url(${project.image})`,
+                      }}
+                    />
+
+                    <div className="absolute inset-0 bg-[#17171F]/40" />
+
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <img
+                        src={project.image}
+                        alt={`${project.title} project preview`}
+                        className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.035]"
+                      />
+                    </div>
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 opacity-70 transition duration-500 group-hover:opacity-50" />
+
+                    {/* CATEGORY BADGE */}
+                    <div className="absolute bottom-5 left-5 z-20">
+                      <span
+                        className={`inline-flex items-center rounded-full border px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] shadow-[0_6px_20px_rgba(0,0,0,0.35)] backdrop-blur-xl ${getCategoryStyle(
+                          project.categoryStyle,
+                        )}`}
+                      >
+                        {project.category}
                       </span>
                     </div>
 
-                    <h3 className="mt-12 whitespace-pre-line text-3xl font-semibold leading-[1.02] tracking-[-0.04em] sm:text-4xl">
-                      {category.title}
-                    </h3>
-
-                    <p className="mt-6 max-w-md text-sm leading-7 text-white/40 sm:text-base">
-                      {category.description}
-                    </p>
-                  </div>
-
-                  {category.projects.length > 0 && (
-                    <div className="mt-10">
-                      <div className="flex items-center gap-3">
-                        <span className="h-px w-8 bg-purple-400/60" />
-
-                        <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/30">
-                          {category.projects.length} projects
+                    {/* HOVER ARROW */}
+                    {!isInProgress && (
+                      <div className="absolute bottom-5 right-5 flex h-11 w-11 translate-y-2 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white/70 opacity-0 shadow-xl backdrop-blur-xl transition-all duration-500 group-hover:translate-y-0 group-hover:border-white/30 group-hover:bg-white/10 group-hover:text-white group-hover:opacity-100">
+                        <span className="text-lg leading-none transition-transform duration-300 group-hover:translate-x-0.5">
+                          →
                         </span>
                       </div>
+                    )}
+                  </div>
 
-                      {category.number === '03' && (
-                        <p className="mt-3 text-[10px] uppercase tracking-[0.16em] text-white/20">
-                          Mobile · Web · API · Integration
-                        </p>
+                  {/* CARD CONTENT */}
+                  <div className="p-6">
+                    <h3 className="text-lg font-medium tracking-tight text-white transition-colors duration-300 group-hover:text-purple-200">
+                      {project.title}
+                    </h3>
+
+                    <p className="mt-3 line-clamp-2 text-sm leading-6 text-white/40">
+                      {project.description}
+                    </p>
+
+                    {/* CTA / PROJECT STATUS */}
+                    <div className="mt-6">
+                      {isInProgress ? (
+                        <div className="flex w-full items-center justify-center gap-2.5 rounded-full border border-amber-300/25 bg-amber-300/[0.08] px-5 py-3.5 text-[12px] font-semibold tracking-wide text-amber-200">
+                          <span className="h-2 w-2 rounded-full bg-amber-300" />
+                          In Progress
+                        </div>
+                      ) : (
+                        <span className="group/button relative flex w-full items-center justify-center overflow-hidden rounded-full p-[1.5px]">
+                          {/* ANIMATED COLORFUL STROKE */}
+                          <span className="absolute inset-[-120%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_30deg,#6D63FF_65deg,#A855F7_95deg,#EC4899_125deg,#38BDF8_155deg,transparent_190deg,transparent_360deg)] opacity-100 blur-[1px]" />
+
+                          {/* OUTER GLASS GLOW */}
+                          <span className="absolute inset-0 rounded-full bg-white/[0.02] shadow-[0_0_25px_rgba(109,99,255,0.12)]" />
+
+                          {/* GLASS SURFACE */}
+                          <span className="relative flex w-full items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/[0.02] px-5 py-3.5 text-[13px] font-medium tracking-wide text-white/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.30),inset_0_-1px_0_rgba(255,255,255,0.08),0_8px_30px_rgba(0,0,0,0.22)] backdrop-blur-2xl transition-all duration-300 group-hover/button:border-white/35 group-hover/button:bg-white/[0.17] group-hover/button:text-white group-hover/button:shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_10px_40px_rgba(109,99,255,0.20)]">
+                            <span className="pointer-events-none absolute inset-x-0 top-0 h-[55%] rounded-full bg-gradient-to-b from-white/[0.05] via-white/[0.06] to-transparent" />
+
+                            <span className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,255,255,0.20),transparent_40%)]" />
+
+                            <span className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 rounded-full bg-gradient-to-t from-purple-500/[0.06] to-transparent" />
+
+                            <span className="relative z-10">View project</span>
+                          </span>
+                        </span>
                       )}
                     </div>
-                  )}
-                </div>
+                  </div>
+                </>
+              )
 
-                {/* RIGHT — PROJECT GALLERY */}
-                <ProjectGallery projects={category.projects} />
-              </div>
-            </article>
-          ))}
-        </div>
+              return isInProgress ? (
+                <div
+                  key={`${project.title}-${index}`}
+                  className="group relative block overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.035] shadow-[0_20px_80px_rgba(0,0,0,0.18)]"
+                >
+                  {cardContent}
+                </div>
+              ) : (
+                <a
+                  key={`${project.title}-${index}`}
+                  href={project.href}
+                  className="group relative block overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.035] shadow-[0_20px_80px_rgba(0,0,0,0.18)] transition-all duration-500 hover:-translate-y-1 hover:border-white/[0.2] hover:bg-white/[0.055]"
+                >
+                  {cardContent}
+                </a>
+              )
+            })}
+          </div>
+        )}
       </div>
 
       {/* ANIMATION KEYFRAMES */}

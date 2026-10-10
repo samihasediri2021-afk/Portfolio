@@ -13,7 +13,11 @@ import RealEstatePlatform from './pages/RealEstatePlatform'
 import ERPPlatform from './pages/ERPPlatform'
 import PersonalServicesPlatform from './pages/PersonalServicesPlatform'
 import EVChargingWebPlatform from './pages/EVChargingWebPlatform'
-import LUMA from './pages/LUMA'
+import EVChargingWebQA from './pages/EVChargingWebQA'
+import EVChargingAppQA from './pages/EVChargingAppQA'
+import HealthcareMobileApp from './pages/HealthcareMobileApp'
+import PharmacyApp from './pages/PharmacyApp'
+import DesignSystem from './pages/DesignSystem'
 
 export default function App() {
   return (
@@ -101,11 +105,28 @@ export default function App() {
             path="/work/ev-charging-web-platform"
             element={<EVChargingWebPlatform />}
           />
+          <Route
+            path="/work/ev-charging-web-qa"
+            element={<EVChargingWebQA />}
+           />
+           <Route
+            path="/work/ev-charging-app-qa"
+            element={<EVChargingAppQA />}
+           />
 
           <Route
-            path="/work/luma"
-            element={<LUMA />}
+           path="/work/healthcare-mobile-app"
+           element={<HealthcareMobileApp />}
           />
+         <Route
+           path="/work/pharmacy-app"
+           element={<PharmacyApp />}
+          />
+          <Route
+           path="/work/design-system"
+            element={<DesignSystem />}
+          />
+
         </Routes>
       </div>
     </div>

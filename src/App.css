@@ -8,7 +8,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: #090817;
+  background: #332da5;
 }
 
 * {
@@ -19,7 +19,7 @@ body {
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
-  background: #090817;
+  background: #252167;
 }
 
 .aurora-background {
@@ -28,7 +28,7 @@ body {
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
-  background: #090817;
+  background: #252167;
 }
 
 .aurora-base {
@@ -71,7 +71,7 @@ body {
   height: 700px;
   left: -220px;
   top: -100px;
-  background: rgba(16, 4, 48, 0.6);
+  background: rgba(63, 32, 147, 0.6);
   animation: auroraOne 12s ease-in-out infinite alternate;
 }
 
@@ -80,7 +80,7 @@ body {
   height: 800px;
   right: -300px;
   top: 10%;
-  background: rgba(48, 48, 150, 0.32);
+  background: rgba(63, 32, 147, 0.6);
   animation: auroraTwo 15s ease-in-out infinite alternate;
 }
 
